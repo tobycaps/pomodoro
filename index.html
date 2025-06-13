@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- background lib -->
+    <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> <!-- stats.js lib --> 
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="clock-container">
+            <!-- pomodoro timer -->
+            <div class="timer">
+                <span id="timer">25:00</span>
+                <h1>Pomodoro</h1>
+            </div>
+        </div>
+        
+        <!-- <div class="start-container active">
+            <button id="start-btn">Start</button>
+        </div> -->
+    
+            <!-- when pomodoro start, show all buttons except start -->
+        <div class="controls">
+            <span id="reset-btn">Reset</span>
+            <button class="pause-btn active" id="pause-btn">⏸</button>
+            <!-- <button class="resume-btn" id="resume-btn">▶</button> -->
+            <span id="break-btn">Break</span>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
