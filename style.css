@@ -6,12 +6,14 @@
 }
 
 body{
-    background-color: #f4f4f4;
+    background-color: #2b2b2b;
     color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    position: relative;
+    z-index: 1;
 }
 
 .container{
@@ -23,6 +25,7 @@ body{
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     padding: 12px;
+    z-index: 2;
 }
 
 .clock-container{
@@ -36,7 +39,7 @@ body{
 }
 
 h1{
-    color: #333;
+    color: #2b2b2b;
     font-size: 2rem;
     margin-bottom: 0.5rem;
 }
@@ -65,7 +68,7 @@ button{
 }
 
 button:hover{
-    background-color: #357ae8;
+    background-color: #fdb57b;
 }
 
 .clock-btns{
@@ -103,4 +106,14 @@ button:hover{
 }
 #pause-btn{
     font-size: 24px;
+}
+
+#particles-js{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    background: #2b2b2b;
 }
