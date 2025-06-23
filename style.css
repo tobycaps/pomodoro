@@ -96,7 +96,7 @@ button:hover{
     font-size: 14px;
 }
 
-#reset-btn, #break-btn{
+#stop-btn, #break-btn{
     flex: 1;
     text-align: center;
     cursor: pointer;
