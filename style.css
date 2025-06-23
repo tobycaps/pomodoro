@@ -1,4 +1,4 @@
-@import url('/font-awesome-4.6.3/css/font-awesome.min.css');
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -78,10 +78,15 @@ button:hover{
     margin-bottom: 1rem;
 }
 
-.controls, .start-container{
+.controls.active{
     display: flex;
     justify-content: center;
-    margin-bottom: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.controls{
+    display: none;
+    align-items: center;
 }
 
 #start-btn{
@@ -94,18 +99,24 @@ button:hover{
 #reset-btn, #break-btn{
     flex: 1;
     text-align: center;
-    padding-top: 15px;
+    cursor: pointer;
 }
-
-/* #pause-btn{
-    flex: 0 0 auto;
-} */
 
 #resume-btn{
     font-size: 16px;
 }
 #pause-btn{
     font-size: 24px;
+}
+
+.pause-btn.active{
+    display: flex;
+    justify-content: center;
+}
+
+.pause-btn{
+    display: none;
+    align-items: center;
 }
 
 #particles-js{
