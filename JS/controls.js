@@ -16,9 +16,25 @@ resumeButton.addEventListener('click', resumeTimer);
 stopButton.addEventListener('click', stopTimer);
 
 let timerInterval;
+let minutesLeft = 25;
+let secondsLeft = 0;
 
 function startTimer() {
-    
+    timerInterval = setInterval(() => {
+        if (secondsLeft === 0) {
+            if (minutesLeft === 0) {
+                clearInterval(timerInterval);
+                alert("Time's up!");
+                return;
+            }
+            minutesLeft--;
+            secondsLeft = 59;
+        } else {
+            secondsLeft--;
+        }
+        minutes.textContent = String(minutesLeft).padStart(2, '0');
+        seconds.textContent = String(secondsLeft).padStart(2, '0');
+    }, 1000);
 
     startControls.classList.remove('active');
     fullControls.classList.add('active');
@@ -27,16 +43,27 @@ function startTimer() {
 }
 
 function pauseTimer() {
+    clearInterval(timerInterval);
+
     pauseButton.classList.remove('active');
     resumeButton.classList.add('active');
 }
 
 function resumeTimer() {
+    startTimer();
+
     pauseButton.classList.add('active');
     resumeButton.classList.remove('active');
 }
 
 function stopTimer() {
+    clearInterval(timerInterval);
+
+    if (minutesLeft === 0 && secondsLeft === 0) {
+        minutesLeft = 25;
+        secondsLeft = 0;
+    }
+
     fullControls.classList.remove('active');
     startControls.classList.add('active');
 }

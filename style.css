@@ -67,14 +67,17 @@ body{
 }
 
 button{
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #2b2b2b;
     color: #f4f4f4;
     border: none;
-    padding: 0 16px;
+    padding: 0;
+    line-height: 1;
+    box-sizing: border-box;
     border-radius: 50%;
     cursor: pointer;
-    text-align: center;
     transition: all 0.3s ease;
     width: 50px;
     height: 50px;
@@ -127,6 +130,9 @@ button:hover{
 .pause-btn.active{
     display: flex;
     justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
 }
 
 .pause-btn{
