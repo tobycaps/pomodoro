@@ -5,6 +5,9 @@ const stopButton = document.getElementById('stop-btn');
 const pauseButton = document.getElementById('pause-btn');
 const resumeButton = document.getElementById('resume-btn');
 const breakButton = document.getElementById('break-btn');
+const minutes = document.getElementById('minutes');
+const seconds = document.getElementById('seconds');
+
 
 // Event Listeners
 startButton.addEventListener('click', startTimer);
@@ -12,7 +15,11 @@ pauseButton.addEventListener('click', pauseTimer);
 resumeButton.addEventListener('click', resumeTimer);
 stopButton.addEventListener('click', stopTimer);
 
+let timerInterval;
+
 function startTimer() {
+    
+
     startControls.classList.remove('active');
     fullControls.classList.add('active');
     pauseButton.classList.add('active');
