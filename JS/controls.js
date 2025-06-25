@@ -8,6 +8,7 @@ const breakButton = document.getElementById('break-btn');
 const minutes = document.getElementById('minutes');
 const seconds = document.getElementById('seconds');
 const timerState = document.getElementById('pomodoro-state');
+const pingAudio = document.getElementById('pings');
 
 
 // Event Listeners
@@ -18,18 +19,24 @@ stopButton.addEventListener('click', stopTimer);
 breakButton.addEventListener('click', breakTimer);
 
 let timerInterval;
-let minutesLeft = 25;
-let secondsLeft = 0;
+let minutesLeft = 0;
+let secondsLeft = 10;
 let paused = false;
-
+let pomodoroState = false;
 
 function startTimer() {
     timerState.textContent = 'Working';
+    pomodoroState = true;
     timerInterval = setInterval(() => {
         if (secondsLeft === 0) {
             if (minutesLeft === 0) {
                 clearInterval(timerInterval);
-                alert("Break Time! Take a short break.");
+                minutesLeft = 0;
+                secondsLeft = 5;
+                minutes.textContent = String(minutesLeft).padStart(2, '0');
+                seconds.textContent = String(secondsLeft).padStart(2, '0');
+                breakTimer();
+                pingStart();
                 return;
             }
             minutesLeft--;
@@ -58,9 +65,13 @@ function pauseTimer() {
 }
 
 function resumeTimer() {
-    startTimer();
-
     paused = false;
+
+    if (pomodoroState === true) {
+        startTimer();
+    } else {
+        breakTimer();
+    }
 
     pauseButton.classList.add('active');
     resumeButton.classList.remove('active');
@@ -82,8 +93,7 @@ function stopTimer() {
 function breakTimer() {
     clearInterval(timerInterval);
     timerState.textContent = 'Break Time';
-    minutesLeft = 5;
-    secondsLeft = 0;
+    pomodoroState = false;
 
     minutes.textContent = String(minutesLeft).padStart(2, '0');
     seconds.textContent = String(secondsLeft).padStart(2, '0');
@@ -92,7 +102,12 @@ function breakTimer() {
         if (secondsLeft === 0) {
             if (minutesLeft === 0) {
                 clearInterval(timerInterval);
-                alert("Break Time! Take a short break.");
+                minutesLeft = 0;
+                secondsLeft = 10;
+                minutes.textContent = String(minutesLeft).padStart(2, '0');
+                seconds.textContent = String(secondsLeft).padStart(2, '0');
+                startTimer();
+                pingStart();
                 return;
             }
             minutesLeft--;
@@ -103,6 +118,8 @@ function breakTimer() {
         minutes.textContent = String(minutesLeft).padStart(2, '0');
         seconds.textContent = String(secondsLeft).padStart(2, '0');
     }, 1000);
+}
 
-
+function pingStart(){
+    pingAudio.play();
 }

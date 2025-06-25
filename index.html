@@ -9,6 +9,9 @@
 
 </head>
 <body>
+    <audio id="pings">
+        <source src="src/audio/Ping2.mp3" type="audio/mp3">
+    </audio>
     <div id="particles-js"></div>
     <div class="container">
         <div class="clock-container">
@@ -20,7 +23,7 @@
         </div>
         
         <div class="controls active" id="start-controls">
-            <button id="start-btn">START</button>
+            <button id="start-btn" onclick="pingStart()">START</button>
         </div>
     
             <!-- when pomodoro start, show all buttons and remove start -->
@@ -28,7 +31,7 @@
             <span id="stop-btn">Stop</span>
             <button class="pause-btn active" id="pause-btn">⏸</button>
             <button class="pause-btn" id="resume-btn">▶</button>
-            <span id="break-btn">Break</span>
+            <span id="break-btn" onclick="pingStart()">Break</span>
         </div>
     </div>
 
