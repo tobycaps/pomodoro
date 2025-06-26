@@ -114,10 +114,22 @@ button:hover{
     font-family: 'Montserrat', sans-serif;
 }
 
-#stop-btn, #break-btn{
+#stop-btn, #break-btn, #continue-btn{
     flex: 1;
     text-align: center;
     cursor: pointer;
+}
+
+.breaks.active{
+    display: flex;
+    flex: 1;
+    text-align: center;
+    cursor: pointer;
+}
+
+.breaks{
+    display: none;
+    align-items: center;
 }
 
 #resume-btn{

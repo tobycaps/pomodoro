@@ -31,7 +31,12 @@
             <span id="stop-btn">Stop</span>
             <button class="pause-btn active" id="pause-btn">⏸</button>
             <button class="pause-btn" id="resume-btn">▶</button>
-            <span id="break-btn" onclick="pingStart()">Break</span>
+            <div class="breaks active">
+                <span id="break-btn" onclick="pingStart()">Break</span>
+            </div>
+            <div class="breaks">
+                <span id="continue-btn" onclick="pingStart()">Continue</span>
+            </div>
         </div>
     </div>
 
